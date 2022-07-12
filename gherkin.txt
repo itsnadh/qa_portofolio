@@ -1,0 +1,38 @@
+
+Gherkin writing for a test scenario.
+
+Scenario : Logging in.
+
+Given the test user is on landing page
+When the test user log in
+Then the home page should display
+
+Scenario : Choose Product 
+
+Given the test user is on home page
+When the test user click on a product
+Then the product page should display
+
+Scenario : Adding Product to Cart
+
+Given the test user is on the product page
+When the test user clicks on the add to cart button
+Then the item should be in the cart
+
+Scenario : Go to Payment Option
+
+Given the item is in the cart
+When the test user clicks on the payment option
+Then the payment page should display
+
+Scenario : Submit Payment
+
+Given the test user in on payment page
+When the test user submit payment information
+Then the message "The payment is successfully done" should display
+
+Scenario Logging Out
+
+Given the test user is on home page
+When the user logs out
+Then the landing page should display
