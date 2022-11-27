@@ -1,0 +1,1288 @@
+{
+	"info": {
+		"_postman_id": "393dffac-2a90-47a9-8ba9-6b3c9c8b661a",
+		"name": "itsnaadh_homework_4.3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23429505"
+	},
+	"item": [
+		{
+			"name": "list post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response complete\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"user_id\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"title\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"body\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"  \"type\": \"array\",\r",
+							"  \"anyof\": [\r",
+							"    {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"        \"id\": {\r",
+							"        \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"user_id\": {\r",
+							"        \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"title\": {\r",
+							"        \"type\": \"string\"\r",
+							"        },\r",
+							"        \"body\": {\r",
+							"        \"type\": \"string\"\r",
+							"        }\r",
+							"    },\r",
+							"    \"required\": [\r",
+							"        \"id\",\r",
+							"        \"user_id\",\r",
+							"        \"title\",\r",
+							"        \"body\"\r",
+							"    ]\r",
+							"    }\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Validating json schema\", ()=>{\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "list post",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 09:59:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"aca656801b8f1d46621a2aaca4f81cba\""
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "set-cookie",
+							"value": "_gorest_session=maW7ZkSwgTuJK7fs6WLMa9WCoqho7s77%2F4QGQB0fu5Xzq64gZzf3r1DWuVRgsvovvrR90%2BM1CH3W%2BZ2l1E2LB%2FnqhaCnPt4R10heFd9wO6RZrqT66EfgRoRGhjZOErZ0S%2FlAByMLWeyDEH8PVXxsX05w%2FHREddS%2BfB146R12BRuwwjXudckEEl50JOiSo9GW2c7XaHeiIgWxaNoJP9aGYFPmqKdmGdF3xUAIhZ7EtYChUvs5d3Z64OFPU%2FenBUS5xLqVWexO1N5tTIo8vcekGbuAZsNbz6g%3D--3fdyoJSueIN2KNWe--egj4IVpxUli8hJpP7r2gjg%3D%3D; path=/; HttpOnly; SameSite=Lax"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-links-current",
+							"value": "https://gorest.co.in/public/v2/posts?page=1"
+						},
+						{
+							"key": "x-links-next",
+							"value": "https://gorest.co.in/public/v2/posts?page=2"
+						},
+						{
+							"key": "x-links-previous",
+							"value": ""
+						},
+						{
+							"key": "x-pagination-limit",
+							"value": "10"
+						},
+						{
+							"key": "x-pagination-page",
+							"value": "1"
+						},
+						{
+							"key": "x-pagination-pages",
+							"value": "206"
+						},
+						{
+							"key": "x-pagination-total",
+							"value": "2051"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-request-id",
+							"value": "f7746360-39b0-4cdf-ba22-98f3959b961b"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.025225"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=p70gzKox1lQiWUaNpnd%2B7F6B9f2DeDhZ6fGBgnxK3fvN0b15WLH7IgyOyYBMRqRjumTtxg1hIgJczCDl%2F0wqIlW6eeYQqXiMie72qsR3KAkMYaqSXOlEnlMmik9REco%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7612d174ddd51897-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2080,\n        \"user_id\": 4144,\n        \"title\": \"Sollers bellum cicuta demitto demonstro cubo defero tolero cauda amo accipio desipio attero sed iure bene eum abundans.\",\n        \"body\": \"Creator ipsa conforto. Admiratio creator omnis. Alias sopor una. Vesica auris conscendo. Cruentus cogo uberrime. Defessus aer constans. Similique candidus aggero. Debeo capillus alveus. Suppellex argentum talis. Aurum sperno utilis. Brevis voluptas amor. Culpo demonstro consequatur. Dolor ars utor. Abscido centum cibo. Calco canto deprimo. Creber acceptus sublime.\"\n    },\n    {\n        \"id\": 2079,\n        \"user_id\": 4137,\n        \"title\": \"Est cribro teneo arx abutor adficio curso temeritas vir.\",\n        \"body\": \"Auris urbs appositus. Curiositas vindico vacuus. Vomica somnus viduo. Aestivus absum vester. Deleniti molestiae labore. Unde umbra non. Coepi virtus attonbitus. Accommodo suspendo amplus. Summisse antepono libero. Conitor video vulgus. Conturbo vitae tempus. Coerceo nemo tabula. Vobis color curvo. Et voco vito. Rerum vigilo unde. Cum suffoco torrens.\"\n    },\n    {\n        \"id\": 2077,\n        \"user_id\": 4134,\n        \"title\": \"Illum acervus abutor quisquam thymum patruus velociter.\",\n        \"body\": \"Certe tero celebrer. Cattus repudiandae corroboro. Conatus debitis velit. Ambulo subseco termes. Vulnero accedo conspergo. Verecundia magnam subnecto. Deprimo tergo victus. Vulgivagus celo crudelis. Vorago aut umquam. Cunctatio titulus sodalitas. Inventore appono sui. Consectetur dolores convoco. Volo sopor degero. Ut aegrus consectetur. Sortitus defungo conforto. Rerum auctor vindico. Abeo alienus utpote.\"\n    },\n    {\n        \"id\": 2076,\n        \"user_id\": 4134,\n        \"title\": \"Quos et cum voluptate canonicus pel pax ut deficio unde delicate asporto accendo voluptatem.\",\n        \"body\": \"Ustulo suggero spectaculum. Ut adflicto animi. Spiritus defleo validus. Sumo inventore strenuus. Aspicio dolor sed. Censura adflicto quam. Calcar coruscus nemo. Cohibeo taceo arbitro. In adhaero cimentarius. Suffragium coadunatio annus. Accusator spargo amplus. Audeo non teneo. Adulatio deinde thesaurus. Quod dapifer aut. Cotidie trucido constans.\"\n    },\n    {\n        \"id\": 2075,\n        \"user_id\": 4129,\n        \"title\": \"Abstergo excepturi aut abutor clibanus verecundia thalassinus ocer rerum.\",\n        \"body\": \"Bardus suppellex tondeo. Careo delinquo esse. Cimentarius nemo spectaculum. Tumultus ea utilis. Adultus denuncio stella. Non defigo audio. Bestia allatus tui. Virtus corpus patruus. Ait spero substantia. Viridis bestia degero. Video cohors saepe. Antepono trucido dolorem. Est cubicularis sint. Aut solum dedecor. Fugit virgo est.\"\n    },\n    {\n        \"id\": 2074,\n        \"user_id\": 4127,\n        \"title\": \"Sufficio quia balbus cui maxime amo quia desidero decens termes vestigium arma degenero deinde vado spes cunabula vapulus.\",\n        \"body\": \"Repellat utique vergo. Tero ad cumque. Cuius ea sapiente. Vinum autem delinquo. Vigilo id adipiscor. Amiculum quis colloco. Facere damno apostolus. Aperte sperno uredo. Consequuntur conturbo expedita. Ustulo cohaero voluptatum. Umquam absorbeo laudantium. Enim cruciamentum excepturi. Maxime et tepesco. Enim congregatio tamdiu. Verus uterque caritas. Baiulus magni dolorum. Conduco tenetur aggredior. Temptatio canto curriculum. Qui ver somnus. Adstringo ea defluo.\"\n    },\n    {\n        \"id\": 2073,\n        \"user_id\": 4121,\n        \"title\": \"Cariosus eos certo tandem avaritia cetera ventus vomica.\",\n        \"body\": \"Pauci vulariter ager. Assentator calamitas corona. Quidem culpo blanditiis. Claudeo certus culpo. Viriliter casso optio. Ascit cubo deripio. Chirographum utpote crepusculum. Autem cultellus administratio. Cubo aegrotatio sumptus. Contabesco adfectus caritas. Debeo deprecator clarus. Apostolus sit verbera. Astrum adnuo censura. Delego campana attonbitus. Dapifer adamo audio. Surgo voluptas arbor. Corrumpo ad copia. Defluo tantillus umbra.\"\n    },\n    {\n        \"id\": 2071,\n        \"user_id\": 4119,\n        \"title\": \"Colo cursim taedium caries trepide tracto sopor suffragium somnus est at aiunt vorago patria sed adstringo tantum amitto.\",\n        \"body\": \"Aedificium delectus velociter. Delinquo cognomen pel. Quis vero esse. Supplanto acidus bellicus. Ut termes molestiae. Solium provident corpus. Attero cervus ter. Audio ustilo cupio. Tactus turpis sed. Nisi calcar solvo. Ceno amplus pecunia. Vilis contra paens. Agnitio terga venia. Thema talis deorsum. Tricesimus crux vis.\"\n    },\n    {\n        \"id\": 2070,\n        \"user_id\": 4118,\n        \"title\": \"Cetera crux deprecator crudelis est adopto tondeo conqueror sollicito curtus arbitro correptius accipio.\",\n        \"body\": \"Sperno et addo. Vix vespillo denuncio. Vere sint ipsam. Strenuus damnatio et. Verbum carbo defessus. Sumo centum virga. Somniculosus creta decipio. Tergo velit defungo. Corpus rem vigor. Voluptas venio degero. Voluptate tertius curvus. Cubicularis accendo atavus. Nihil somniculosus aspicio. Amicitia auditor sursum. Caterva beatae impedit.\"\n    },\n    {\n        \"id\": 2069,\n        \"user_id\": 4116,\n        \"title\": \"Ubi angelus pariatur subvenio cuppedia super cetera.\",\n        \"body\": \"Argentum spoliatio cresco. Aegrus arto in. Cetera tamen cruentus. Et adinventitias vulticulus. Aperiam molestiae creator. Surgo tero vestigium. Alias est cognatus. Despecto decet texo. Vobis thema conturbo. Velit audacia crapula. Adulescens defleo aeger. Quisquam conduco consectetur. Carpo ut absorbeo. Auctor tempore timor. Curiositas attero est. Patria deripio suscipit. Accusator adultus apparatus. Aut voluptatum audax. Turpis sursum denego. Celer quisquam color.\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "create post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"user_id\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"title\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"body\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\" : \"3333\",\r\n    \"title\" : \"This is an updated title for PUT method\",\r\n    \"body\" : \"This is a body\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\" : \"3333\",\r\n    \"title\" : \"This is an updated title for PUT method\",\r\n    \"body\" : \"This is a body\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 09:58:05 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"6f6de621c26abdfe5f7228b0798052f6\""
+						},
+						{
+							"key": "location",
+							"value": "https://gorest.co.in/public/v2/posts/2223"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "set-cookie",
+							"value": "_gorest_session=HAc73pYwRANejXznG8fH5v60iC9DbgoQq66LmbCYM1uyF7oilW7fWw94zB4PqFI0mAw%2FnXzx2SjIPEIIVShuDqiK8LvmllKwaBrWyWGPF86TSFeVRcx3V4gUyEzem%2BBQlZ6GghBM213Rg9stvj78DGNz4H3G%2Bk9Fq6c40BACGBzmXForhrHYsnx37D%2BMqx0KZaYH6BtmGeCJsUtHa%2BseA2veuRHTVLelCX9bAOCuKppVPIWEERGHHXDxhm2wLgwT2zDVsfi8BwKRsBA6OIvL6j8i30Vmo5M%3D--BMVBGngm4XrEHrHa--1S%2FBbZ%2Bz%2BudoW9f0PsUN5Q%3D%3D; path=/; HttpOnly; SameSite=Lax"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "90"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "89"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "x-request-id",
+							"value": "89b14890-9c99-44b8-94f5-48954a7dc04d"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.073654"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=lGRzi7444dYaTkTFgZMbV9EpluX8MQyAnl2X95qAcnNY7bcyzpKdHfF1E%2FX0cCw0Ys8V0mwWZEEM9V67oLQiAL6%2FBfighJc1XNPSHfYGXeDfA%2BHoctCWB5qmij2%2BP%2FI%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7612cf9a88d21897-SIN"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2223,\n    \"user_id\": 3333,\n    \"title\": \"This is an updated title for PUT method\",\n    \"body\": \"This is a body\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get one post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"user_id\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"title\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"body\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"id\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"user_id\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"title\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"body\": {\r",
+							"      \"type\": \"string\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"id\",\r",
+							"    \"user_id\",\r",
+							"    \"title\",\r",
+							"    \"body\"\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Validating json schema\", ()=>{\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{id}}",
+					"host": [
+						"{{url}}{{id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get one post",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}{{id}}",
+							"host": [
+								"{{url}}{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 10:05:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"ea32781c6c682f3cf28c54920b5247b5\""
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "set-cookie",
+							"value": "_gorest_session=LgOuO9eB3Fa9bm9w97TwsKzrNS9FRJvn%2BWjwbx41CFwoTi%2ButkzqSE%2FdCA6EE6q5%2Bp0xuY15N6BEMtjWzHnyggs948mPK2cz6w4d4CqF5q4SkuQRDZXrsoxrYO6mPBJfqpu9tP3lphof8eh4bV%2F3pHJyayDLHFRSNXdyh2F1X0SmX3lsSEfTM8dwwbVDavM%2B6Y9pPexiDa7IOmJyb1aWwr1%2FUF2oem%2BApK3uftwJUpRR1mFiVOmSLXcNKWsauu8GDbn%2F61jnC80TcJe%2BGNaML8toycULVUw%3D--ByLX3T5E69r4UoaQ--8BNeCzPfBtLefpoxIETIHg%3D%3D; path=/; HttpOnly; SameSite=Lax"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-request-id",
+							"value": "da39ac5a-0115-4a48-9a0e-566d0acba49f"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.017855"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=FCzFEvA2n6y21kl24J9qEJJSP1JBZkuTltrO3zjAi3r00wXwSigMtlI8%2BiUwlrsAj9FNlbFNhteNKwytItaQExm5MVySwz3EqmB9t4nbRIHH24Oc2aLDpzC0iAr9i44%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7612d9f81f6f1897-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2080,\n    \"user_id\": 4144,\n    \"title\": \"Sollers bellum cicuta demitto demonstro cubo defero tolero cauda amo accipio desipio attero sed iure bene eum abundans.\",\n    \"body\": \"Creator ipsa conforto. Admiratio creator omnis. Alias sopor una. Vesica auris conscendo. Cruentus cogo uberrime. Defessus aer constans. Similique candidus aggero. Debeo capillus alveus. Suppellex argentum talis. Aurum sperno utilis. Brevis voluptas amor. Culpo demonstro consequatur. Dolor ars utor. Abscido centum cibo. Calco canto deprimo. Creber acceptus sublime.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "update post PATCH",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"user_id\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"title\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"body\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if title is updated\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.title).to.eql(\"This is an updated title with PATCH method\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"id\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"user_id\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"title\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"body\": {\r",
+							"      \"type\": \"string\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"id\",\r",
+							"    \"user_id\",\r",
+							"    \"title\",\r",
+							"    \"body\"\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Validating json schema\", ()=>{\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"This is an updated title with PATCH method\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{id}}",
+					"host": [
+						"{{url}}{{id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update post PATCH",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"This is an updated title with PATCH method\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}{{id}}",
+							"host": [
+								"{{url}}{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 10:05:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"4d58c32d50ec7a9230db00084c64dad9\""
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "set-cookie",
+							"value": "_gorest_session=sTNt62ycRDjtRkezNVyXq2Pz%2BBKZFfV%2BZmIbOrUJL0vwv8wr5cmUaAPQhgsKw62RhAlstqV%2FdCebiRlE267ob5di6FHOHGbj1kunDBTFMx6xykxiPLypMl6tnvaKI52V%2F4E6pDavUbn4TSAtIMbYTK749owk1ziqXJN48dfxm8zirE5MflOy6U3bqzt7hRkoQHoSdfCXpjkp8pReKxYK6gskG%2F35CkA4TYn29weHOlSBt%2BHjz4sGtvpBofqPfyvQ3052Io2TJ4jP4WVy%2BeV3GDAloJ4Epoc%3D--kVyKNIb5ZczDtbmd--QKWbWlsXZwD2GNQGtdGGDQ%3D%3D; path=/; HttpOnly; SameSite=Lax"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "90"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "89"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "x-request-id",
+							"value": "acbb1139-f2dd-4d0a-b726-70e08634be73"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.072170"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=pqs8Vko502Vtgt2oFH2jGeTSVYIDE%2Faj%2FVxxSbwLIckV2zWAXrainBpelMV%2FGvw6HZUBhfb3W9T25dt80EI%2Bd2Cxczh6zs9Jf%2BGOdmh%2F6GonZ8Zut7rIfm0i6ClgnSs%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7612dad60cae1897-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"This is an updated title with PATCH method\",\n    \"id\": 2080,\n    \"user_id\": 4144,\n    \"body\": \"Creator ipsa conforto. Admiratio creator omnis. Alias sopor una. Vesica auris conscendo. Cruentus cogo uberrime. Defessus aer constans. Similique candidus aggero. Debeo capillus alveus. Suppellex argentum talis. Aurum sperno utilis. Brevis voluptas amor. Culpo demonstro consequatur. Dolor ars utor. Abscido centum cibo. Calco canto deprimo. Creber acceptus sublime.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "update post PUT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"user_id\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"title\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"body\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 300ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"id\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"user_id\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"title\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"body\": {\r",
+							"      \"type\": \"string\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"id\",\r",
+							"    \"user_id\",\r",
+							"    \"title\",\r",
+							"    \"body\"\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Check if title is updated\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.title).to.eql(\"This is an updated title with PUT method\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validating json schema\", ()=>{\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"This is an updated title with PUT method\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{id}}",
+					"host": [
+						"{{url}}{{id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update post PUT",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"This is an updated title with PUT method\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}{{id}}",
+							"host": [
+								"{{url}}{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 10:05:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "etag",
+							"value": "W/\"1d08b4ec72135626d41d4f940bd840ad\""
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "set-cookie",
+							"value": "_gorest_session=eH04gbdEK3rh%2F%2Blb8J2L0y9bSOeT0a9dWK7b5070tePCqtOPnIAinwpvluGiL3jDyCcY%2FSUurShqaDDsJ0HB7LPYXAa9SfiedQA%2FhmohPWDygDh3QprXFI8xXksDVXg292KurGBWnrJE7dpELeeQUvjvf6RgzT0Vtxl90srq4T3TwJtU0SWacs6dMinWdwWzS6l9WYirlnBIaIhJk%2BcnM0M22dXtXb68muVmTCE4s71jMbrlVLvJcmtl8iAX599Y9pGNT%2BXc2n3YFX2EZt0ts%2FH0iHtztpw%3D--dMrBs9K5ZHdYp2w%2B--o7DEzbRbFg2G7ZeWbbuv4Q%3D%3D; path=/; HttpOnly; SameSite=Lax"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "90"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "89"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "x-request-id",
+							"value": "8f6ab14b-6b9b-401f-b492-093f72a22766"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.054750"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=PTtK5vcbcKE4rIsSoMgyWH2J5e4LMF%2BF7uKu2kTQwctNHdYiRiDnbb1tcC7oP8FOEh%2BJJH3JqgwsaPhBe%2FD83fWxzBAbb60QqSCwyqsYg6mAQ5BQehqwQhBbnk6rzP0%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7612da4acc291897-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"This is an updated title for PUT method\",\n    \"id\": 2080,\n    \"user_id\": 4144,\n    \"body\": \"Creator ipsa conforto. Admiratio creator omnis. Alias sopor una. Vesica auris conscendo. Cruentus cogo uberrime. Defessus aer constans. Similique candidus aggero. Debeo capillus alveus. Suppellex argentum talis. Aurum sperno utilis. Brevis voluptas amor. Culpo demonstro consequatur. Dolor ars utor. Abscido centum cibo. Calco canto deprimo. Creber acceptus sublime.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "delete post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}{{id}}",
+					"host": [
+						"{{url}}{{id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete post",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}{{id}}",
+							"host": [
+								"{{url}}{{id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 10:07:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "referrer-policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "set-cookie",
+							"value": "_gorest_session=xoymSEoBC5LAHD6fWrX3VtNeSyeoP6TinX4TEqr3Gs1gW9ha1Z6oUmKajjTLBuslxYlEPfnGh1qSNxhm36OKLHHHNf2cp2b0XLM9c1RXnkNefTi0fQhjK9YnKEbZFzTbJUUNf9vqje6Bt1m5VuyOwQBQWgiOrJR69wHqLFqS97UGjP10p%2BGwQXfmPtNPDZ16R2OtCJqEdn7RxxZGraQsQJaZSKvBTtf8Z26NPAnQ8UvuWxhkVbQfOKvn06%2BP3treoZJsFoMlmRRayzDF%2Bkh2zpPQywqCR44%3D--1ELyFqiQLQqAEUeS--Emy%2BhwYd88yAtxXWepYfDg%3D%3D; path=/; HttpOnly; SameSite=Lax"
+						},
+						{
+							"key": "vary",
+							"value": "Origin"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-download-options",
+							"value": "noopen"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "x-permitted-cross-domain-policies",
+							"value": "none"
+						},
+						{
+							"key": "x-ratelimit-limit",
+							"value": "90"
+						},
+						{
+							"key": "x-ratelimit-remaining",
+							"value": "89"
+						},
+						{
+							"key": "x-ratelimit-reset",
+							"value": "1"
+						},
+						{
+							"key": "x-request-id",
+							"value": "fafa80fe-1af0-4f80-908c-2b89ab2873e8"
+						},
+						{
+							"key": "x-runtime",
+							"value": "0.070729"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=V57Th2cikWtiQAYmK4jo3B9SKXHZPXAVU%2FU9eG24kemrz4jXY8rmV6z3LoIi%2BTHXIVBUeJMv1W5IDQxABtfkDgJ16ZIbMPfw%2B6tutOHqGY2bybC9%2BDtmtLlpqgqRwn4%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "7612dd016d5f1897-SIN"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://gorest.co.in/public/v2/posts/",
+			"type": "string"
+		},
+		{
+			"key": "id",
+			"value": "2079",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "a84519602c6e0a851b73c428bb5ac5e4c5a3314f5014fd916670567afa162993",
+			"type": "string"
+		}
+	]
+}

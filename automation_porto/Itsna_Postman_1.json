@@ -1,0 +1,584 @@
+{
+	"info": {
+		"_postman_id": "cf934ad4-a5d5-4d78-990f-e7cf7f5f8058",
+		"name": "CHALLENGE 4 (itsnaadh)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23429505"
+	},
+	"item": [
+		{
+			"name": "dummy - List Employees",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							" \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"status\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"data\": {\r",
+							"      \"type\": \"array\",\r",
+							"      \"anyof\": [\r",
+							"        {\r",
+							"          \"type\": \"object\",\r",
+							"          \"properties\": {\r",
+							"            \"id\": {\r",
+							"              \"type\": \"integer\"\r",
+							"            },\r",
+							"            \"employee_name\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"employee_salary\": {\r",
+							"              \"type\": \"integer\"\r",
+							"            },\r",
+							"            \"employee_age\": {\r",
+							"              \"type\": \"integer\"\r",
+							"            },\r",
+							"            \"profile_image\": {\r",
+							"              \"type\": \"string\"\r",
+							"            }\r",
+							"          },\r",
+							"          \"required\": [\r",
+							"            \"id\",\r",
+							"            \"employee_name\",\r",
+							"            \"employee_salary\",\r",
+							"            \"employee_age\",\r",
+							"            \"profile_image\"\r",
+							"          ]\r",
+							"          }\r",
+							"        ]\r",
+							"      }\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Validating json schema\", ()=>{\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{dummy}}employees",
+					"host": [
+						"{{dummy}}employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dummy - Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"status\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"data\": {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"name\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"salary\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"age\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"id\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"name\",\r",
+							"        \"salary\",\r",
+							"        \"age\",\r",
+							"        \"id\"\r",
+							"      ]\r",
+							"    },\r",
+							"    \"message\": {\r",
+							"      \"type\": \"string\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"status\",\r",
+							"    \"data\",\r",
+							"    \"message\"\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Validating json schema\", ()=>{\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"test\",\r\n    \"salary\":\"123\",\r\n    \"age\":\"23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{dummy}}create",
+					"host": [
+						"{{dummy}}create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dummy - Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"     \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"status\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"data\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"message\": {\r",
+							"      \"type\": \"string\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"status\",\r",
+							"    \"data\",\r",
+							"    \"message\"\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Validating json schema\", ()=>{\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{dummy}}delete/{{id}}",
+					"host": [
+						"{{dummy}}delete"
+					],
+					"path": [
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reqres - Get User with ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"  \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"data\": {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"id\": {\r",
+							"          \"type\": \"integer\"\r",
+							"        },\r",
+							"        \"email\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"first_name\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"last_name\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"avatar\": {\r",
+							"          \"type\": \"string\"\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"id\",\r",
+							"        \"email\",\r",
+							"        \"first_name\",\r",
+							"        \"last_name\",\r",
+							"        \"avatar\"\r",
+							"      ]\r",
+							"    },\r",
+							"    \"support\": {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"url\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"text\": {\r",
+							"          \"type\": \"string\"\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"url\",\r",
+							"        \"text\"\r",
+							"      ]\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"data\",\r",
+							"    \"support\"\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Validating json schema\", ()=>{\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{reqres}}{{id}}",
+					"host": [
+						"{{reqres}}{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reqres - Update User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"   \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"name\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"job\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"updatedAt\": {\r",
+							"      \"type\": \"string\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"name\",\r",
+							"    \"job\",\r",
+							"    \"updatedAt\"\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Validating json schema\", ()=>{\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"itsnadh\",\r\n    \"job\": \"zion resident\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{reqres}}{{id}}",
+					"host": [
+						"{{reqres}}{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reqres - Update User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							" \"type\": \"object\",\r",
+							"  \"properties\": {\r",
+							"    \"name\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"job\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"updatedAt\": {\r",
+							"      \"type\": \"string\"\r",
+							"    }\r",
+							"  },\r",
+							"  \"required\": [\r",
+							"    \"name\",\r",
+							"    \"job\",\r",
+							"    \"updatedAt\"\r",
+							"  ]\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Validating json schema\", ()=>{\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"itsnadh\",\r\n    \"job\": \"writer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{reqres}}{{id}}",
+					"host": [
+						"{{reqres}}{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "news - Get News",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 10000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(10000);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"    \"status\": {\r",
+							"      \"type\": \"string\"\r",
+							"    },\r",
+							"    \"totalResults\": {\r",
+							"      \"type\": \"integer\"\r",
+							"    },\r",
+							"    \"articles\": {\r",
+							"      \"type\": \"array\",\r",
+							"      \"anyof\": [\r",
+							"        {\r",
+							"            \"type\": \"object\",\r",
+							"          \"properties\": {\r",
+							"            \"source\": {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"id\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"id\",\r",
+							"                \"name\"\r",
+							"              ]\r",
+							"            },\r",
+							"            \"author\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"title\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"description\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"url\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"urlToImage\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"publishedAt\": {\r",
+							"              \"type\": \"string\"\r",
+							"            },\r",
+							"            \"content\": {\r",
+							"              \"type\": \"string\"\r",
+							"            }\r",
+							"          },\r",
+							"          \"required\": [\r",
+							"            \"source\",\r",
+							"            \"author\",\r",
+							"            \"title\",\r",
+							"            \"description\",\r",
+							"            \"url\",\r",
+							"            \"urlToImage\",\r",
+							"            \"publishedAt\",\r",
+							"            \"content\"\r",
+							"          ]\r",
+							"        }\r",
+							"      ]\r",
+							"    }\r",
+							"}        \r",
+							"}\r",
+							"\r",
+							"pm.test(\"Validating json schema\", ()=>{\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"test\",\r\n    \"salary\":\"123\",\r\n    \"age\":\"23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{news}}top-headlines?sources={{sources}}&apiKey={{apiKey}}",
+					"host": [
+						"{{news}}top-headlines"
+					],
+					"query": [
+						{
+							"key": "sources",
+							"value": "{{sources}}"
+						},
+						{
+							"key": "apiKey",
+							"value": "{{apiKey}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

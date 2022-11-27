@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "80f5b600-f619-4153-8844-ab45ebdf999c",
+		"name": "Task_B2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23429505"
+	},
+	"item": [
+		{
+			"name": "Get Echo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/get?test=123",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "test",
+							"value": "123"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/get?test=123",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "test",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 29 Sep 2022 05:41:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "393"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"189-SmzQJaNLTvBQz2dbOMYxXtW1sAg\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "set-cookie",
+							"value": "sails.sid=s%3A1YK0N6aBiRKXX84PD02j41KyAdYoWJvL.T3T5SfUY%2FBKgvf8DIFp18XuPHhzdBueG%2FeY6l8BSy5M; Path=/; HttpOnly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"args\": {\n        \"test\": \"123\"\n    },\n    \"headers\": {\n        \"x-forwarded-proto\": \"https\",\n        \"x-forwarded-port\": \"443\",\n        \"host\": \"postman-echo.com\",\n        \"x-amzn-trace-id\": \"Root=1-63353008-73a5b85e23b0fcf41c6cdd2e\",\n        \"user-agent\": \"PostmanRuntime/7.29.2\",\n        \"accept\": \"*/*\",\n        \"cache-control\": \"no-cache\",\n        \"postman-token\": \"81a89fb4-0254-4cd2-be57-321b99f8ab7c\",\n        \"accept-encoding\": \"gzip, deflate, br\"\n    },\n    \"url\": \"https://postman-echo.com/get?test=123\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Echo Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://postman-echo.com/getUsers",
+					"protocol": "https",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"getUsers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/getUsers",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"getUsers"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 29 Sep 2022 05:55:15 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "set-cookie",
+							"value": "sails.sid=s%3ACLwK1JDNeAtWw-7yUv10pgfKm1unGDiY.yo%2Bb8xrmu%2FbG62d47p9zYheJpdC51piaEd0pwan8k5k; Path=/; HttpOnly"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"name\" : \"{{$randomFullName}}\"\r\n    \"userName\" : \"{{$randomUserName}}\"\r\n    \"location\": \"{{$randomCity}}\"\r\n    \"company\": \"{{$randomCompanyName}}\"\r\n    \"jobTitle\": \"{{$randomJobTitle}}\"\r\n    \"updateAt\": \"{{$timetamp}}\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "https://195b1b86-e2fa-48a2-ab79-4b5867d22378.mock.pstmn.io/getUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://195b1b86-e2fa-48a2-ab79-4b5867d22378.mock.pstmn.io/getUsers",
+					"protocol": "https",
+					"host": [
+						"195b1b86-e2fa-48a2-ab79-4b5867d22378",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"getUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://195b1b86-e2fa-48a2-ab79-4b5867d22378.mock.pstmn.io/get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://195b1b86-e2fa-48a2-ab79-4b5867d22378.mock.pstmn.io/get",
+					"protocol": "https",
+					"host": [
+						"195b1b86-e2fa-48a2-ab79-4b5867d22378",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "008c8233-dafc-486a-9c48-cb19ff7da118",
+		"name": "Tecnotab Mock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23429505"
+	},
+	"item": [
+		{
+			"name": "/v1/home",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<COMMAND>\r\n<TYPE>EXRCTRFREQ</TYPE>\r\n<DATE>2019-12-12T07:23:51.642Z</DATE>\r\n<EXNWCOOE>123</EXTNWCODE>\r\n<MSISDN></MSISDN>\r\n<PIN>123</PIN>\r\n<LOGINID>DXL</LOGINID>\r\n<PASSWORD>123</PASSWORD>\r\n<EXTCODE>123</EXTCODE>\r\n<EXTREFNUM>MURL804251320210001</EXTREFNUM>\r\n<MSISDN2>8697520607</MSISDN2>\r\n<AMOUNT>1SOC</AMOUNT>\r\n<LANGUAGE1></LANGUAGE1>\r\n<LANGUAGE2></LANGUAGE2>\r\n<SELECTOR>1</SELECTOR>\r\n</COMMAND>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/home",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"home"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}//v1/home",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"",
+								"v1",
+								"home"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": null,
+					"cookie": [],
+					"body": "<COMMAND>\n<TYPE>EXRCTRFRESP</TYPE>\n<TXNSTATUS>200</TXNSTATUS>\n<DATE>20/02/2022</DATE>\n<EXTREFNUM>MURI12345678</EXTREFNUM>\n<TXNID>ABC123456756789</TXNID>\n<MESSAGE>Your request is accepted for processing</MESSAGE>\n</COMMAND>"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://624d1100-912b-47fb-987b-7ce70b180b80.mock.pstmn.io"
+		}
+	]
+}
